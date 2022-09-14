@@ -1,0 +1,51 @@
+﻿@model IntraHealth.Models.Category
+@{
+    ViewData["Title"] = "create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Category Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="category" asp-action="list">Category</a></li>
+            <li><a asp-area="admin" asp-controller="category" asp-action="create" class="active">Create</a></li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-10 ">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        New Category
+                    </div>
+                    <div class="panel-body">
+                        <form method="post" asp-area="admin" asp-controller="category" asp-action="create">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name category</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" asp-for="NameCategory">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">Status</label>
+                                    <select asp-for="StatusCategory" class="form-select">
+                                        <option style="color:green" value="true">Hoạt đông</option>
+                                        <option style="color:red" value="false">không hoạt động</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Save changes</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+

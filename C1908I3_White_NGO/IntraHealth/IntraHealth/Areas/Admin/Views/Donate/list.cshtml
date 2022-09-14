@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "list";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            User donation  <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="event" asp-action="list" class="active">donate</a></li>
+
+        </ol>
+    </div>
+    <div id="page-inner">
+        <!--List table-->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="panel panel-warning " style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    <div class="panel-heading">
+                        Event table  
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive ">
+                            <table class="table table-striped table-bordered table-hover " id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Id User</th>
+                                        <th>Id Event</th>
+                                        <th>AmoutDonate</th>
+                                        <th>Create time</th>
+                                        <th>Status</th>
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var donate in ViewBag.donate)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td>@donate.IdDonate</td>
+                                            <td>@donate.IdUser</td>
+                                            <td>@donate.IdEvent</td>
+                                            <td class="text-success">+$@Convert.ToDecimal(donate.AmoutDonate).ToString("#,##0")</td>
+                                            <td>@donate.TimeDonate</td>
+                                            @if (donate.StatusDonate == true)
+                                            {
+                                                <td class="text-success">active</td>
+                                            }
+                                            else if (donate.StatusDonate == null)
+                                            {
+                                         <td class="text-success">success</td>
+                                            }
+                                            else
+                                            {
+                                        <td class="text-success">unsuccessful</td>
+                                            }
+                                      
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+        <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez.com</a></p></footer>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>
+

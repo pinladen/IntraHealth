@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "index";
+    Layout = "~/Areas/User/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!--  ************************* Page Title Starts Here ************************** -->
+
+<div class="page-nav no-margin row">
+    <div class="container">
+        <div class="row">
+            <h2>Popular Causes</h2>
+            <ul>
+                <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><i class="fas fa-angle-double-right"></i>Services</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ################# Events Start Here#######################--->
+<section class="events">
+    <div class="container">
+
+        <div class="event-ro row">
+            @foreach (var events in ViewBag.evt)
+            {
+                <div class="col-md-4 col-sm-6 " >
+                    <div class="event-box">
+                        <img src="~/user/assets/images/events/@events.PhotoEvent" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; " alt="">
+                        <h4>@events.NameEvent</h4>
+                        <p class="raises"><span style="color:#365F1D;" class="radioA">Raised : $@Convert.ToDecimal(events.AmoutAchievedEvent).ToString("#,##0")</span> / <span class="radioA" style="font-size:18px;color:orange">$ @Convert.ToDecimal(events.MoutEvent).ToString("#,##0") </span> </p>
+                        <p class="desic contentf" style="height:58px">@events.ContentEvent </p>
+                        <a class="btn btn-success btn-sm" asp-controller="donation" asp-action="index" asp-route-id="@events.IdEvent">Donate Now</a>
+                    </div>
+                </div>
+            }
+
+        
+        </div>
+    </div>
+</section>
+

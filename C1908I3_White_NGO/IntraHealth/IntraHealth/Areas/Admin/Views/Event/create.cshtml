@@ -1,0 +1,88 @@
+﻿@model IntraHealth.Models.EventN
+@{
+    ViewData["Title"] = "create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Event Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="events" asp-action="index">Event</a></li>
+            <li><a asp-area="admin" asp-controller="events" asp-action="create" class="active">Create</a></li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-10 ">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        New event
+                    </div>
+                    <div class="panel-body">
+                        @ViewBag.err
+                        <form method="post" enctype="multipart/form-data" asp-area="admin" asp-controller="event" asp-action="create">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name event</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" maxlength="50" asp-for="NameEvent">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAuthor">Author</label>
+                                    <input type="text" class="form-control" id="exampleInputAuthor" placeholder="Enter author" maxlength="20" asp-for="AuthorEvent">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAddress">Address</label>
+                                    <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter address" maxlength="50" asp-for="AddressEvent">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">Mount</label>
+                                    <input type="number" class="form-control" id="exampleInputmount" placeholder="0" min="10" max="1000000" asp-for="MoutEvent">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">Mount achieveEvent</label>
+                                    <input type="number" class="form-control" id="exampleInputmount" placeholder="0" min="10" max="1000000" asp-for="AmoutAchievedEvent" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputStarttime">Start time</label>
+                                    <input type="date" class="form-control" id="exampleInputStarttime" asp-for="StartDateEvent">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">End time</label>
+                                    <input type="date" class="form-control" id="exampleInputEndtime" asp-for="EndDateEvent">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">Time create</label>
+                                    <input type="date" class="form-control" id="exampleInputEndtime" asp-for="TimeCreateEvent" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputContent">Content</label>
+                                    <textarea class="form-control" rows="5" name="editor" id="editor" maxlength="150" asp-for="ContentEvent"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="imagea">Image</label>
+                                    <input type="file" class="form-control" name="file" id="imagea" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">Status</label>
+                                    <select asp-for="StatusEvent" class="form-select">
+                                        <option style="color:green" value="true">Active</option>
+                                        <option style="color:red" value="false">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Save changes</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+

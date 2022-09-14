@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "index";
+    Layout = "~/Areas/User/Views/Shared/_LayoutUser.cshtml";
+}
+
+<link href="~/user/assets/css/NgoStyle.css" rel="stylesheet" />
+<section class="m-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h5 class="text-primary h6">Other Ngo</h5>
+            <h2 class="display-20 display-md-18 display-lg-16">List of Others assocical NGO's</h2>
+        </div>
+        <div class="row">
+            @foreach (var partners in ViewBag.partners)
+            {
+                <div class="col-sm-6 col-lg-3 mb-1-9">
+                    <div class="card-wrapper" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+                        <div class="card-img"><img src="/user/assets/images/partners/@partners.LogoPt" style="height:176px ;box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;" alt="..."></div>
+                        <div class="card-body">
+                            <div>
+                                <h3 class="h5">@partners.NamePt Cleaning</h3>
+                                <p class="display-30">@partners.CompanyPt</p>
+                                <a asp-area="user" asp-controller="partners" asp-action="detail" asp-route-id="@partners.IdPartner" class="read-more">view partners</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }          
+        </div>
+    </div>
+</section>
+

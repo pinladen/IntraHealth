@@ -1,0 +1,67 @@
+﻿@model IntraHealth.Models.OtherPartner
+@{ ViewData["Title"] = "create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Event Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="otherpartner" asp-action="index">otherpartner</a></li>
+            <li><a asp-area="admin" asp-controller="otherpartner" asp-action="create">Create</a></li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Event(new)
+                    </div>
+                    <div class="panel-body">
+                        <form method="post" asp-area="admin" asp-controller="otherpartner" asp-action="create">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">LogoPt </label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" asp-for="LogoPt">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAuthor">NamePt</label>
+                                    <input type="text" class="form-control" id="exampleInputAuthor" placeholder="Enter author" asp-for="NamePt">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAddress">CompanyPt</label>
+                                    <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter address" asp-for="CompanyPt">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">PhonePt</label>
+                                    <input type="text" class="form-control" id="exampleInputmount" placeholder="0" asp-for="PhonePt">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">EmailPt</label>
+                                    <input type="text" class="form-control" id="exampleInputmount" placeholder="0" asp-for="EmailPt">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">JoinDatePt</label>
+                                    <input type="date" class="form-control" id="exampleInputmount" placeholder="0" asp-for="JoinDatePt">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">Status</label>
+                                    <select asp-for="StatusPt">
+                                        <option style="color:green" value="true">Hoạt đông</option>
+                                        <option style="color:red" value="false">không hoạt động</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

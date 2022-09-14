@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "list";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Category Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="category" asp-action="list" class="active">Category</a></li>
+
+        </ol>
+    </div>
+    <div id="page-inner">
+        <!--List table-->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="panel panel-warning " style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    <div class="panel-heading">
+                        Event table  <a class="badge badge-success" asp-area="admin" asp-controller="category" asp-action="create"> New Category <i class="fa fa-plus"></i></a><br />
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive ">
+                            <table class="table table-striped table-bordered table-hover " id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Name</th>
+                                        <th>Status</th>
+                                        <th>Option</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var ev in ViewBag.ev)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td>@ev.IdCategory</td>
+                                            <td>@ev.NameCategory</td>
+                                            
+                                            @if (ev.StatusCategory == true)
+                                            {
+                                                <td class="text-success">active</td>
+                                            }
+                                            else if (ev.StatusCategory == null)
+                                            {
+                                                <td class="text-success">inactive</td>
+                                            }
+                                            else
+                                            {
+                                                <td class="text-success">inactive</td>
+                                            }
+                                            <td>
+                                                <a asp-area="admin" asp-controller="category" asp-action="detail" asp-route-id="@ev.IdCategory" class="btn btn-info" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;" title="Detail">
+                                                    <i class="fa fa-eye "></i>
+                                                </a>
+                                                <a asp-area="admin" asp-controller="category" asp-action="update" asp-route-id="@ev.IdCategory" class="btn btn-warning" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;" title="Update">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </a>
+                                                <a asp-area="admin" asp-controller="category" asp-action="delete" asp-route-id="@ev.IdCategory" class="btn btn-danger" onclick="return confirm('Are you sure you want delete event ?')" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;" title="Delete">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+        <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez.com</a></p></footer>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>
+

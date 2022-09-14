@@ -1,0 +1,143 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IntraHealth.Models.Card
+@{
+    ViewData["Title"] = "Donate";
+
+    Layout = "~/Areas/User/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="row m-3">
+    <!-- Large modal -->
+    <h1 class="container" style="border-bottom: 1px solid black">Donate </h1>
+</div>
+<!--  ************************* About Us Starts Here ************************** -->
+@{
+    var eventa = ViewBag.evt;
+}
+<div class="row contact-rooo ">
+    <div class="container" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border-radius:3px">
+        <div class="row radioA">
+            <div style="padding:20px ;box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;" class="col-sm-7">
+                @if (Context.Session.GetString("username") == null)
+                {
+                    <p class="text-danger"> You should login before donating !</p>
+                    <a class="btn btn-black" asp-controller="login" asp-action="login">Login here  </a>
+                }
+                else
+                {
+
+                    <h2>Donate Form</h2> <br>
+                    <form method="post" asp-area="user" asp-controller="donation" asp-action="card">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">ID event </label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Id event" asp-for="id" value="@eventa.IdEvent" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Event </label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Event" asp-for="nameEvent" value="@eventa.NameEvent" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Username </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="user" value="@Context.Session.GetString("username")" readonly>
+                            </div>
+                        </div>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-sm-2 pt-0">Amout </legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" name="amout" id="amout5" value="5" asp-for="amout" checked>
+                                        <label class="form-check-label" for="gridRadios1">
+                                            $ 5
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="amout" id="admout10" value="10">
+                                        <label class="form-check-label" for="gridRadios2">
+                                            $ 10
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="amout" id="admout20" value="20">
+                                        <label class="form-check-label" for="gridRadios2">
+                                            $ 20
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="amout" id="admout25" value="25">
+                                        <label class="form-check-label" for="gridRadios2">
+                                            $ 25
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="amout" id="admout50" value="50">
+                                        <label class="form-check-label" for="gridRadios2">
+                                            $ 50
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="amout" id="admout100" value="100">
+                                        <label class="form-check-label" for="gridRadios2">
+                                            $ 100
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="amout" id="admoutother" value="other">
+                                        <label class="form-check-label" for="gridRadios2">
+                                            Other : <input id="inputother" type="text" onchange="changeradioother()"/>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Payment </label>
+                            <div class="col-sm-10">
+                                <img src="~/user/assets/pngwing.com.png" width="100" height="50"
+                                     style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;display: block;border-radius:3px" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <button type="submit" class="container" style="color:dodgerblue  ;border:2px solid #005596">Donate</button>
+                            </div>
+                        </div>
+                    </form>
+                }
+
+            </div>
+
+            <div class="col-sm-5">
+                <div style="margin:50px" class="serv">
+                    <h2 style="margin-top:10px;">Address</h2>
+                    Antonya Street, <br>
+                    23/H-2, Building<br>
+                    TA, AUS District<br>
+                    Phone:+91 9159669599<br>
+                    Email:support@smarteyeapps.com<br>
+                    Website:www.smarteyeapps.com.com<br>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row m-3">
+    <!-- Large modal -->
+    <h1 class="container" style="border-bottom: 1px solid black">Donate </h1>
+</div>
+<script type="text/javascript">
+    function changeradioother() {
+        var other = document.getElementById("admoutother");
+        other.value = document.getElementById("inputother").value;
+    }
+</script>
+

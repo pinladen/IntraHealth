@@ -1,0 +1,54 @@
+﻿@model IntraHealth.Models.NotificationN
+@{
+    ViewData["Title"] = "send";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Event Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="events" asp-action="index">Event</a></li>
+            <li><a asp-area="admin" asp-controller="events" asp-action="create" class="active">Create</a></li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-10 ">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        New event
+                    </div>
+                    <div class="panel-body">
+                        
+                        <form method="post" asp-area="admin" asp-controller="noitification" asp-action="sends">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Send to</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" asp-for="IdUser" value="@ViewBag.iduser" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">From</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" maxlength="50" asp-for="FromAdmin" value="Admin" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputContent">Content</label>
+                                    <textarea class="form-control" rows="3" id="editor" maxlength="250" asp-for="TextNotification"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Save changes</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+

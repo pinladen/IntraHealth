@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "index";
+    Layout = "~/Areas/User/Views/Shared/_LayoutUser.cshtml";
+}
+<link href="~/user/assets/css/PageStyleSheet.css"  rel="stylesheet"/>
+<div class="m-4">
+    <div class="container pb5 m-t-3">
+        <div class="row">
+            <div class="col-md-9 mb40">
+                <article>
+                    <img src="/user/assets/images/pages/@ViewBag.page.PhotoPage" alt="" class="img-fluid mb30">
+                    <div class="post-content">
+                        <h3>@ViewBag.page.TitlePage</h3>
+                        <ul class="post-meta list-inline">
+                            <li class="list-inline-item">
+                                <i class="fa fa-user-circle-o"></i> <a href="#">@ViewBag.page.AuthorPage</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="fa fa-calendar-o"></i> <a href="#">@ViewBag.page.TimeCreatePage</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="fa fa-tags"></i> <a href="#">Bootstrap4</a>
+                            </li>
+                        </ul>
+                        <p>@ViewBag.page.ContentPage</p>                        
+                        <ul class="list-inline share-buttons">
+                            <li class="list-inline-item">Share Post:</li>
+                            <li class="list-inline-item">
+                                <a href="#" class="social-icon-sm si-dark si-colored-facebook si-gray-round">
+                                    <i class="fa fa-facebook"></i>
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="social-icon-sm si-dark si-colored-twitter si-gray-round">
+                                    <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="social-icon-sm si-dark si-colored-linkedin si-gray-round">
+                                    <i class="fa fa-linkedin"></i>
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </article>
+                <!-- post article-->
+
+            </div>
+            <div class="col-md-3 mb40">
+                <div class="mb40">
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search..." aria-describedby="basic-addon2">
+                            <button class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <!--/col-->
+                <div class="mb40">
+                    <h4 class="sidebar-title">Categories</h4>
+                    <ul class="list-unstyled categories">
+                        <li><a asp-area="user" asp-controller="page" asp-action="index" asp-route-id="19">What we do</a></li>
+                        <li><a asp-area="user" asp-controller="page" asp-action="index" asp-route-id="20">Our mission</a></li>
+                        <li><a asp-area="user" asp-controller="page" asp-action="index" asp-route-id="21">Our team</a></li>
+                        <li><a asp-area="user" asp-controller="page" asp-action="index" asp-route-id="22">Career with us</a></li>
+                        <li><a asp-area="user" asp-controller="page" asp-action="index" asp-route-id="23">Our achievements</a></li>
+                        <li><a asp-area="user" asp-controller="page" asp-action="index" asp-route-id="24">Our spporters</a></li>
+                        <li><a asp-area="user" asp-controller="page" asp-action="index" asp-route-id="25">Read About us</a></li>
+                    </ul>
+                </div>
+                <!--/col-->
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "list";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            contract Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="contract" asp-action="list" class="active">contract</a></li>
+
+        </ol>
+    </div>
+    <div id="page-inner">
+        <!--List table-->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="panel panel-warning " style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    <div class="panel-heading">
+                        contract table  <a class="badge badge-success" asp-area="admin" asp-controller="contract" asp-action="create"> New event <i class="fa fa-plus"></i></a><br />
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive ">
+                            <table class="table table-striped table-bordered table-hover " id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>DateCreate</th>
+                                        <th>Details</th>
+                                        <th>IdUser </th>
+                                        <th>Status</th>
+                                        <th>Option</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var ev in ViewBag.ev)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td>@ev.IdContractUs</td>
+                                            <td>@ev.DateCreate</td>
+                                            <td>@ev.Details</td>
+                                            <td>@ev.IdUser</td>
+                                            @if (ev.StatusContratcus == true)
+                                            {
+                                                <td class="text-success">active</td>
+                                            }
+                                            else if (ev.StatusContratcus == null)
+                                            {
+                                                <td class="text-success">inactive</td>
+                                            }
+                                            else
+                                            {
+                                                <td class="text-success">inactive</td>
+                                            }
+                                            <td>
+                                              
+                                                <a asp-area="admin" asp-controller="noitification" asp-action="send" asp-route-id="@ev.IdUser" class="btn btn-warning" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;" title="Update">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </a>
+                                                <a asp-area="admin" asp-controller="contract" asp-action="delete" asp-route-id="@ev.IdContractUs" class="btn btn-danger" onclick="return confirm('Are you sure you want delete event ?')" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;" title="Delete">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+        <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez.com</a></p></footer>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>
+

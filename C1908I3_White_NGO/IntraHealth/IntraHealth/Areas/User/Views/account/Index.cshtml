@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="~/user/assets/css/profileuser.css" >
+    <title>User</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main-body">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="main-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-area="user" asp-controller="home" asp-action="index">Home</a></li>                
+                    <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="~/images/avatar/@ViewBag.profile.AvatarUser" alt="Admin" class="rounded-circle" width="150" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; ">
+                                <div class="mt-3">
+                                    <h4>@ViewBag.profile.UsernameUser</h4>
+                                    <p class="text-secondary mb-1">@ViewBag.profile.NicknameUser</p>                                   
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="#">Edit profile</a></li>
+                            <li class="list-group-item"><a href="#">Change password</a></li>
+                            <li class="list-group-item"><a href="#">Notification</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Rengerbody-->
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Full Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @ViewBag.profile.LastNameUser  @ViewBag.profile.FistNameUser
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @ViewBag.profile.EmailUser
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Phone</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                   + 84 @ViewBag.profile.PhoneUser
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Brithday</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @ViewBag.profile.BrithdayUser
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">join date</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @ViewBag.profile.TimeCreateUser
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a class="btn btn-info " asp-area="user" asp-controller="account" asp-action="update">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Donate</h5>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">event</th>
+                                                <th scope="col">date donate</th>
+                                                <th scope="col">amount</th>
+                                                <th scope="col">status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var donate in ViewBag.donate)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@donate.IdDonate</th>
+                                                    <td>@donate.IdEvent</td>
+                                                    <td>@donate.TimeDonate</td>
+                                                    <td class="text-success fontamout"> $ @Convert.ToDecimal(donate.AmoutDonate).ToString("#,##0") </td>
+                                                    @if (donate.StatusDonate == true)
+                                                    {
+                                                        <td class="text-success">success</td>
+}
+                                                    else
+                                                    {
+                                                        <td class="text-danger">success</td>
+}
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Messenger</h5>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">from</th>
+                                                <th scope="col">Content</th>
+                                                <th scope="col">Send day</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var noti in ViewBag.noiti)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@noti.IdNotification</th>
+                                                    <td>@noti.FromAdmin</td>
+                                                    <td>@noti.TextNotification</td>
+                                                    <td>@noti.SendTimeNotification</td>                                                
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

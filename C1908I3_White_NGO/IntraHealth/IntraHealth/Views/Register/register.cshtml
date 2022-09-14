@@ -1,0 +1,76 @@
+﻿@model IntraHealth.Models.AccountN
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="~/login/css/StyleSheet.css">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+
+                        <!-- form card login -->
+                        <div class="card rounded shadow shadow-sm">
+                            <div class="card-header">
+                                <h3 class="mb-0">Create account</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" method="POST" asp-action="register" asp-controller="register">
+                                    <div class="form-group">
+                                        <label for="email1" class="text-dark">Email</label>
+                                        <input type="text" class="form-control form-control-lg rounded-0" maxlength="35" id="email1" asp-for="EmailUser">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="uname1">Username</label>
+                                        <input type="text" class="form-control form-control-lg rounded-0 " maxlength="32" id="uname1" asp-for="UsernameUser">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control form-control-lg rounded-0" maxlength="32" id="pwd1" asp-for="PasswordUser">
+                                    </div>
+                                    <p class="text-danger font-weight-bold">@ViewBag.username</p>
+
+
+                                    <button type="submit" class="btn btnlgi btn-lg float-right" id="btnLogin">Create account</button>
+                                    <a asp-action="login" asp-controller="login" class="btn btnlgi btn-lg float-left" id="btnLogin"><i class="fa fa-arrow-left"></i></a>
+                                </form>
+
+
+                            </div>
+                            <!--/card-block-->
+
+                        </div>
+                        <!-- /form card login -->
+
+                    </div>
+
+
+                </div>
+                <!--/row-->
+
+            </div>
+            <!--/col-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

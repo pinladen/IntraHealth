@@ -1,0 +1,76 @@
+﻿@model IntraHealth.Models.AccountN
+@{
+    ViewData["Title"] = "detail";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Event Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="events" asp-action="index">Event</a></li>
+            <li><a asp-area="admin" asp-controller="events" asp-action="create" class="active">Detail</a></li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-dark">
+                    <div class="panel-heading">
+                       <h1 class="text-dark font-weight-bold">Detail user</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col align-self-start">
+                                <img src="~/images/avatar/@ViewBag.avatar" width="100" height="100" style="border-radius:50%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;" />
+                            </div>
+                        </div>
+                        <div hidden class="form-group">
+                            <label for="exampleInputEmail1">Id user</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" asp-for="IdUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name user</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" asp-for="FistNameUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputAuthor">Username</label>
+                            <input type="text" class="form-control" id="exampleInputAuthor" placeholder="Enter author" asp-for="UsernameUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputAddress">Time Create</label>
+                            <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter address" asp-for="TimeCreateUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputmount">Email</label>
+                            <input type="number" class="form-control" id="exampleInputmount" placeholder="0" asp-for="EmailUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputStarttime">Phone</label>
+                            <input type="date" class="form-control" id="exampleInputStarttime" asp-for="PhoneUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEndtime" >Status</label>
+                            <select asp-for="StatusUser">
+                                <option style="color:green" value="true">Active</option>
+                                <option style="color:red" value="false">Iactive</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

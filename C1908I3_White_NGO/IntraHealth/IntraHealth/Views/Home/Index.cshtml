@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Http;
+<link rel="icon" href="/icon/icons8_facebook_50px.png" type="image/icon type">
+<title>Facebook</title>
+<h1 style="color:red">-------------------Main Page ----------------------</h1>
+
+
+@if (Context.Session.GetString("username") == null)
+{
+    <a asp-controller="login" asp-action="login"> LOGIN </a>
+}
+else
+{
+    <p>Wellcome : @Context.Session.GetString("username") </p>  
+    <a asp-controller="login" asp-action="logout"> Logout </a>
+}
+<a asp-area="user" asp-controller="donation" asp-action="index">Donate</a>

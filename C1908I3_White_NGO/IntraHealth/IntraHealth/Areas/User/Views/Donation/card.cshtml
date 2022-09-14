@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "card";
+    Layout = "~/Areas/User/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="row m-3" style="visibility:hidden">
+    <!-- Large modal -->
+    <h1 class="container" style="border-bottom: 1px solid black">Donate </h1>
+</div>
+<!--  ************************* About Us Starts Here ************************** -->
+
+<div class="row contact-rooo ">
+    <div class="container" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+        <div class="row radioA">
+            <div style="padding:20px ;box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;" class="col-sm-12">
+                <h2>Card Form</h2> <br>
+                <form method="post" action="@ViewBag.postURL">
+                    <input type="hidden" name="upload" value="1" />
+                    <input type="hidden" name="business" value="@ViewBag.business" />
+                    <input type="hidden" name="return" value="@ViewBag.returnUrl" />
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Event</th>
+                                <th scope="col">Id event</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Donate amout</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>@ViewBag.nameevt</td>
+                                <td>@ViewBag.idevt</td>
+                                <td >@Context.Session.GetString("username")</td>
+                                <td>+$ @ViewBag.amount</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">Total</td>
+                                <td style="color:forestgreen">$ @ViewBag.amount</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="item_number_1" value="@ViewBag.idevt" />
+                    <input type="hidden" name="item_name_1" value="@ViewBag.nameevt" />
+                    <input type="hidden" name="amount_1" value="@ViewBag.amount" />
+
+
+                    <button type="submit"  class="container btnDonate">Donate</button>
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+

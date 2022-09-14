@@ -1,0 +1,102 @@
+﻿@model IntraHealth.Models.AccountN
+@{
+    ViewData["Title"] = "update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Event Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="event" asp-action="index">Event</a></li>
+            <li><a asp-area="admin" asp-controller="event" asp-action="update" class="active">Update</a></li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        Update Evnet
+                    </div>
+                    <div class="panel-body">
+
+                        <form method="post" enctype="multipart/form-data" asp-area="admin" asp-controller="account" asp-action="updates">
+                            <div class="modal-body">
+                                <div hidden class="form-group">
+                                    <label for="exampleInputEmail1">ID user</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" asp-for="IdUser" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">Username</label>
+                                    <input type="text" class="form-control" id="exampleInputmount" asp-for="UsernameUser" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">Password</label>
+                                    <input type="text" class="form-control" id="exampleInputmount" asp-for="PasswordUser" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputmount" asp-for="EmailUser">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">Phone</label>
+                                    <input type="tel" class="form-control" id="exampleInputmount" asp-for="PhoneUser">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Firs name</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" asp-for="FistNameUser">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAuthor">Last Name</label>
+                                    <input type="text" class="form-control" id="exampleInputAuthor" asp-for="LastNameUser">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAddress">Brithday User</label>
+                                    <input type="date" class="form-control" id="exampleInputAddress" asp-for="BrithdayUser">
+                                </div>
+                                <div>
+                                    <label for="exampleInputEndtime">Time create</label>
+                                    <input type="date" class="form-control" id="exampleInputEndtime" asp-for="TimeCreateUser" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">Avartar </label>
+                                    <input type="text" asp-for="AvatarUser" readonly />
+                                    <img src="~/images/avatar/@ViewBag.avatar" width="100" height="100" style="border:2px dotted black; border-radius:5px ;margin:5px; padding:2px" />
+                                    <input type="file" class="form-control" name="file">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">Role</label>
+                                    <select asp-for="IdRole" class="form-select">
+                                        <option style="color:green" value="1">Admin</option>
+                                        <option style="color:red" value="2">User</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">Status</label>
+                                    <select asp-for="StatusUser">
+                                        <option class="text-success" value="true">active</option>
+                                        <option class="text-danger" value="false">inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+//===========================================
+
+
+

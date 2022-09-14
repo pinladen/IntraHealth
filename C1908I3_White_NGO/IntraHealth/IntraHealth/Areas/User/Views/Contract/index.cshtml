@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IntraHealth.Models.ContractUsN
+@{
+    ViewData["Title"] = "index";
+    Layout = "~/Areas/User/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="page-nav no-margin row">
+    <div class="container">
+        <div class="row">
+            <h2>Contact Us</h2>
+            <ul>
+                <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><i class="fas fa-angle-double-right"></i> Contact US</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<!--  ************************* Contact Us Starts Here ************************** -->
+
+
+
+
+<div class="row contact-rooo m-3">
+    <div class="container">
+        <div class="row m-1">
+            <div style="padding:20px ;box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;" class="col-sm-7 m-2 ">
+                <h2>Contact Form</h2> <br>
+                @if (Context.Session.GetString("username") != null)
+                {
+                    <form asp-area="user" asp-controller="contract" asp-action="send" method="post">
+                        <div class="row cont-row">
+                            <div class="col-sm-3"><label>Enter Message</label><span>:</span></div>
+                            <div class="col-sm-8">
+                                <textarea rows="5" placeholder="Enter Your Message" class="form-control input-sm" asp-for="Details"></textarea>
+                            </div>
+                        </div>
+                        <div style="margin-top:10px;" class="row">
+                            <div style="padding-top:10px;" class="col-sm-3"><label></label></div>
+                            <div class="col-sm-8">
+                                <button class="btn btn-primary btn-sm" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                }
+
+            </div>
+            <div class="col-sm-4 m-1">
+                <div style="margin:50px" class="serv">
+                    <h2 style="margin-top:10px;">Address</h2>
+                    212 Nguyễn Đình Chiểu Street, <br>
+                    VietNam,Ho Chi Minh, 3 District<br>
+                    Phone:+1800 1779<br>
+                    Email:aptech2@aprotrain.com<br>
+                    Website:https://aptechvietnam.com.vn/<br>
+                </div>
+                <div class="row container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4242360484036!2d106.6878416147715!3d10.77878389232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3a9d8d1bb3%3A0x1cf755f02e5a8b48!2zMjEyIE5ndXnhu4VuIMSQw6xuaCBDaGnhu4N1LCBQaMaw4budbmcgNiwgUXXhuq1uIDMsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2sus!4v1625534758661!5m2!1svi!2sus" width="400" height="300" style="        border: 0;
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,66 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="~/login/css/StyleSheet.css">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center" >
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 mx-auto" >
+
+                        <!-- form card login -->
+                        <div class="card rounded shadow shadow-sm">
+                            <div class="card-header">
+                                <h3 class="mb-0">Login</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" method="post" asp-controller="login" asp-action="login">
+                                    <div class="form-group">
+                                        <label >Username</label>
+                                        <input type="text" class="form-control form-control-lg rounded-0 inpt" maxlength="32"  name="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control form-control-lg rounded-0 " maxlength="32"  name="password">
+
+                                    </div>
+                                    <a href="#">Forgot Password</a>
+                                    <button type="submit" class="btn btn-lg float-right btnlgi" id="btnLogin">Login</button>
+                                </form>
+                                <p class="text-danger font-weight-bold">@ViewBag.erro</p>
+                                <p class="" style="margin-top: 40px;">Sign up for an account <a asp-controller="register" asp-action="register">here</a></p>
+                            </div>
+                            <!--/card-block-->
+                        </div>
+                        <!-- /form card login -->
+
+                    </div>
+
+
+                </div>
+                <!--/row-->
+
+            </div>
+            <!--/col-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

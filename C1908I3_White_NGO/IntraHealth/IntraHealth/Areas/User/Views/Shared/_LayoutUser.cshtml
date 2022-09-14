@@ -1,0 +1,216 @@
+﻿@using Microsoft.AspNetCore.Http;
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Intra helth</title>
+    <link rel="shortcut icon" href="~/user/assets/intralLogo.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/user/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/user/assets/css/all.min.css">
+    <link rel="stylesheet" href="~/user/assets/css/animate.css">
+    <link rel="stylesheet" href="~/user/assets/plugins/slider/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/user/assets/plugins/slider/css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="~/user/assets/css/style1.css" />
+    <link rel="stylesheet" type="text/css" href="~/user/assets/css/userstyle.css" />
+
+</head>
+
+<body>
+    <!--Header-->
+    <header class="continer-fluid ">
+        <div class="header-top">
+            <div class="container">
+                <div class="row col-det">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <ul class="ulleft">
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                aptech2@aprotrain.com.com
+                                <span>|</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-volume"></i>
+                                +1800 1779
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 folouws">
+
+                        <ul class="ulright">
+                            <li> <small>Folow Us </small>:</li>
+                            <li>
+                                <i class="fab fa-facebook-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-twitter-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-instagram"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-linkedin"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    @if (Context.Session.GetString("username") == null)
+                    {
+
+                        <div class="col-lg-3  col-md-6 ">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" style="margin-right:5px"></i>Login</a>
+                                <div class="dropdown-menu abc" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="login" asp-action="login">Login</a>
+                                    <a class="dropdown-item" asp-controller="register" asp-action="register">Register</a>                                  
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="col-lg-3  col-md-6 ">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="~/images/avatar/@Context.Session.GetString("avatar")" width="20" height="20" style="border-radius:50% ; margin-right:5px" /> @Context.Session.GetString("username")</a>
+                                <div class="dropdown-menu abc" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-area="user" asp-controller="account" asp-action="index">Account</a>
+                                    <a class="dropdown-item" href="#">Check donation</a>
+                                    @if (Context.Session.GetString("role") == "1")
+                                    {
+                                        <a class="dropdown-item bg-info" asp-area="admin" asp-controller="home" asp-action="index">Go to Admin manager</a>
+                                    }
+                                    <a class="dropdown-item logout" id="logout" asp-controller="login" asp-action="logout">Log out</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>                    
+            </div>
+        </div>
+        <div id="menu-jk" class="header-bottom">
+            <div class="container">
+                <div class="row nav-row">
+                    <div class="col-lg-3 col-md-12 logo">
+                        <a asp-area="user" asp-controller="home" asp-action="index">
+                            <img src="~/user/assets/logomenu1.png" alt="">
+                        </a>
+
+                    </div>
+                    <div id="menu" class="col-lg-9 col-md-12 d-none d-lg-block nav-col">
+
+                        <ul class="navbad">
+                            <li class="nav-item active">
+                                <a class="nav-link menu" asp-area="user" asp-controller="home" asp-action="index">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="about_us.html">About Us</a>
+                                <div class="dropdown-menu abc" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-area="user" asp-controller="page" asp-action="index" asp-route-id="19">What we do</a>
+                                    <a class="dropdown-item" asp-area="user" asp-controller="page" asp-action="index" asp-route-id="20">Our mission</a>
+                                    <a class="dropdown-item" asp-area="user" asp-controller="page" asp-action="index" asp-route-id="21">Our team</a>
+                                    <a class="dropdown-item" asp-area="user" asp-controller="page" asp-action="index" asp-route-id="22">Career with us</a>
+                                    <a class="dropdown-item" asp-area="user" asp-controller="page" asp-action="index" asp-route-id="23">Our achievements</a>
+                                    <a class="dropdown-item" asp-area="user" asp-controller="page" asp-action="index" asp-route-id="24">Our spporters</a>
+                                    <a class="dropdown-item" asp-area="user" asp-controller="page" asp-action="index" asp-route-id="25">Read About us</a>
+                                    <a class="dropdown-item" asp-area="user" asp-controller="ngo" asp-action="index" >Others NGO's us</a>
+                                    <a class="dropdown-item" asp-area="user" asp-controller="partners" asp-action="index" >PthersPartners</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu" asp-area="user" asp-controller="event" asp-action="index">Services</a>
+                            </li>                           
+                            <li class="nav-item">
+                                <a class="nav-link menu" asp-area="user" asp-controller="contract" asp-action="index">Contact US</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+    <!--footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2>About Us</h2>
+                    <p>
+                        Smart Eye is a leading provider of information technology, consulting, and business process services. Our dedicated employees offer strategic insights, technological expertise and industry experience.
+                    </p>
+                    <p>We focus on technologies that promise to reduce costs, streamline processes and speed time-to-market, Backed by our strong quality processes and rich experience managing global... </p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h2>Useful Links</h2>
+                    <ul class="list-unstyled link-list">
+                        <li><a ui-sref="about" href="#/about">About us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="gallery" href="#/gallery">Gallery</a><i class="fa fa-angle-right"></i></li>
+                        <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 map-img">
+                    <h2>Contact Us</h2>
+                    <address class="md-margin-bottom-40">
+                        TeamWhite<br>
+                        Hồ Ngọc Đức <br>
+                        Trần Hữu Nhật Trường <br>
+                        Hà Sỹ Thiện<br>
+                        Phone: +0918481322 , + <br>
+                        Email: <a href="mailto:duc.hng77@aptechlearning.edu.vn" class="">duc.hng77@aptechlearning.edu.vn</a><br>
+                        Web: <a href="https://aptechvietnam.com.vn/" class="">www.aptechvietnam.com.vn/</a>
+                    </address>
+
+                </div>
+            </div>
+
+
+            <div class="nav-box row clearfix">
+                <div class="inner col-md-9 clearfix">
+                    <ul class="footer-nav clearfix">
+                        <li><a asp-area="user" asp-controller="home" asp-action="index">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a asp-area="user" asp-controller="home" asp-action="index">Servies</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+
+
+                </div>
+                <div class="donate-link col-md-3"><a href="donate.html" class="btn btn-primary "><span class="btn-title">Donate Now</span></a></div>
+            </div>
+
+        </div>
+
+
+    </footer>
+    <div class="copy">
+        <div class="container">
+            <a href="https://www.smarteyeapps.com/">2015 &copy; All Rights Reserved | Designed and Developed by Smarteyeapps</a>
+
+            <span>
+                <a><i class="fab fa-github"></i></a>
+                <a><i class="fab fa-google-plus-g"></i></a>
+                <a><i class="fab fa-pinterest-p"></i></a>
+                <a><i class="fab fa-twitter"></i></a>
+                <a><i class="fab fa-facebook-f"></i></a>
+            </span>
+        </div>
+
+    </div>
+
+    <script src="~/user/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/user/assets/js/popper.min.js"></script>
+    <script src="~/user/assets/js/bootstrap.min.js"></script>
+    <script src="~/user/assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
+    <script src="~/user/assets/plugins/slider/js/owl.carousel.min.js"></script>
+    <script src="~/user/assets/js/script.js"></script>
+</body>
+</html>

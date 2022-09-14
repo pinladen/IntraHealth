@@ -1,0 +1,68 @@
+﻿@model IntraHealth.Models.Page
+@{
+    ViewData["Title"] = "create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="/ckeditor/ckeditor.js"></script>
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            page Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="pages" asp-action="lsit">page</a></li>
+            <li><a asp-area="admin" asp-controller="pages" asp-action="create" class="active">Create</a></li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-10 ">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        page event
+                    </div>
+                    <div class="panel-body">
+                        <form method="post" enctype="multipart/form-data" asp-area="admin" asp-controller="pages" asp-action="Create">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name </label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" asp-for="NamePage">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAuthor">Title</label>
+                                    <input type="text" class="form-control" id="exampleInputAuthor" placeholder="Enter Title" asp-for="TitlePage">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAddress">Author</label>
+                                    <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter Author" asp-for="AuthorPage">
+                                </div>
+                                <textarea asp-for="ContentPage" id="editor1"  rows="10" cols="80"></textarea>                          
+                                <div class="form-group">
+                                    <label for="exampleInputStarttime">Photo</label>
+                                    <input type="file" name="file" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">IdCategory </label>
+                                    <select asp-for="IdCategory" asp-items="@ViewBag.category" class="form-control">
+                                        <option disabled selected>--- SELECT ---</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">Status</label>
+                                    <select asp-for="StatusPage" class="form-select">
+                                        <option style="color:green" value="true">Hoạt đông</option>
+                                        <option style="color:red" value="false">không hoạt động</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,178 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IntraHealth.Models.AccountN
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="demo.css">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main-body">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="main-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-area="user" asp-controller="home"   asp-action="index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-area="user" asp-controller="account"   asp-action="index">User</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">User update</li>
+                </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="/images/avatar/@Context.Session.GetString("avatar")" alt="Admin" class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4>Username</h4>
+                                    <p class="text-secondary mb-1">Nickname</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="#">Edit profile</a></li>
+                            <li class="list-group-item"><a href="#">Change password</a></li>
+                            <li class="list-group-item"><a href="#">Notification</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Rengerbody-->
+                <div class="col-lg-8">
+                    <div class="card">
+                        <form enctype="multipart/form-data" asp-area="user" asp-controller="account" asp-action="updates" method="post">
+                            <div class="card-body">
+                                <div class="row mb-3" style="display:none">
+                                    <div class="col-sm-3" style="display:none">
+                                        <h6 class="mb-0">ID</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="IdUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3" style="visibility:hidden"  >
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">password</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="PasswordUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Username</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="UsernameUser" readonly>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">First name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="FistNameUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Last name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="LastNameUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Nick name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="NicknameUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="EmailUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Phone</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="PhoneUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Brithday</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="date" class="form-control" asp-for="BrithdayUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3" style="display:none">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Create date</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="date" class="form-control" asp-for="TimeCreateUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3" style="display:none">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">status</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="StatusUser">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Avata</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="AvatarUser">
+                                        <input type="file" name="file" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3" style="display:none">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Role</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" asp-for="IdRole">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="submit" class="btn btn-primary px-4" value="Save Changes">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

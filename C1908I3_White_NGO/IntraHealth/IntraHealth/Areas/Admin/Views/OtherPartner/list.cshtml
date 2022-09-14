@@ -1,0 +1,91 @@
+﻿
+@{ ViewData["Title"] = "index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
+
+<h2>index</h2>
+
+
+@{ ViewData["Title"] = "list";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Event Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="otherpartner" asp-action="list">Other Partner</a></li>
+
+        </ol>
+    </div>
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Create Other Partner
+                    </div>
+                    <div class="panel-body">
+                        <a class="btn btn-primary" asp-area="admin" asp-controller="otherpartner" asp-action="create">Other Partner New</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--List table-->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Event managerment
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive ">
+                            <table class="table table-striped table-bordered table-hover " id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>IdPartner</th>
+                                        <th>LogoPt</th>
+                                        <th>NamePt</th>
+                                        <th>CompanyPt </th>
+                                        <th>PhonePt </th>
+                                        <th>EmailPt</th>
+                                        <th>JoinDatePt</th>
+                                        <th>StatusPt</th>
+                                        <th>Option</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var oth in ViewBag.oth)
+                                    {
+                        <tr class="odd gradeX">
+                            <td>@oth.IdPartner</td>
+                            <td>@oth.LogoPt</td>
+                            <td>@oth.NamePt</td>
+                            <td>@oth.CompanyPt</td>
+                            <td>@oth.PhonePt</td>
+                            <td>@oth.EmailPt</td>
+                            <td>@oth.JoinDatePt</td>
+                            <td>@oth.StatusPt</td>
+                            <td>
+                                <a asp-area="admin" asp-controller="otherpartner" asp-action="detail" asp-route-id="@oth.IdPartner" class="btn btn-info">Detail</a> |
+                                <a asp-area="admin" asp-controller="otherpartner" asp-action="update" asp-route-id="@oth.IdPartner" class="btn btn-primary">Update</a> |
+                                <a asp-area="admin" asp-controller="otherpartner" asp-action="delete" asp-route-id="@oth.IdPartner" class="btn btn-warning" onclick="return confirm('Are you sure')">Delete</a>
+                            </td>
+                        </tr>
+}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+        <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez.com</a></p></footer>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>
+

@@ -1,0 +1,59 @@
+﻿@model IntraHealth.Models.OtherNgo
+@{ ViewData["Title"] = "create";
+                Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml"; }
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Event Intralhealth <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a asp-area="admin" asp-controller="home" asp-action="index">Home</a></li>
+            <li><a asp-area="admin" asp-controller="otherngo" asp-action="index">otherngo</a></li>
+            <li><a asp-area="admin" asp-controller="otherngo" asp-action="create">Create</a></li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Event(new)
+                    </div>
+                    <div class="panel-body">
+                        <form method="post" asp-area="admin" asp-controller="otherngo" asp-action="create">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name Ngo</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" asp-for="NameNgo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAuthor">UrlNgo</label>
+                                    <input type="text" class="form-control" id="exampleInputAuthor" placeholder="Enter author" asp-for="UrlNgo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputAddress">InforNgo</label>
+                                    <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter address" asp-for="InforNgo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputmount">JoinDateNgo</label>
+                                    <input type="datetime" class="form-control" id="exampleInputmount" placeholder="0" asp-for="JoinDateNgo">
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label for="exampleInputEndtime">Status</label>
+                                    <select asp-for="StatusNgo">
+                                        <option style="color:green" value="true">Hoạt đông</option>
+                                        <option style="color:red" value="false">không hoạt động</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
