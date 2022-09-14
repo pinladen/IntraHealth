@@ -1,0 +1,21 @@
+
+Console
+
+Scaffold-DbContext "Server=LAPTOP-2DLRLMUO\SQLEXPRESS;Database=NGO;user id=sa;password=1234567" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context DatabaseContext -f
+
+----------------------------------------------------------
+appsetting.json
+
+"ConnectionStrings": {
+    "DefaultConnection": "Server=LAPTOP-2DLRLMUO\SQLEXPRESS;Database=NGO;user id=sa;password=1234567"
+ }
+
+-----------------------------------------------------------
+Packages
+
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.Tools
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.SqlServer.Design
+Microsoft.EntityFrameworkCore.Proxies
+Microsoft.Extensions.Configuration.JSONer id=sa;password=1234567" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context DatabaseContext -f
